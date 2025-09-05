@@ -2,6 +2,3 @@ name = "mini"
 description = "A fast, minimalist and responsive hugo theme for bloggers."
 tags = ["blog", "fast", "minimalist", "responsive", "simple", "beautiful", "tags", "pages"]
 features = ["fast", "minimalist", "responsive", "archive", "tags"]
-
-[author]
-    name = "shantanu"

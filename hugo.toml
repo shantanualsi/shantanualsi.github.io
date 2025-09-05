@@ -1,4 +1,9 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://www.shantanualshi.com/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Shantanu Alshi'
 theme = 'mini'
+googleAnalytics = 'G-C6SNRYL17D'
+
+[params]
+    hiddenPostSummaryInHomePage = true
+    enableGoogleAnalytics = true
