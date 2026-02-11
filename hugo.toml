@@ -1,9 +1,11 @@
 baseURL = 'https://www.shantanualshi.com/'
 languageCode = 'en-us'
 title = 'Shantanu Alshi'
-theme = 'mini'
+theme = 'paper'
 googleAnalytics = 'G-C6SNRYL17D'
 
 [params]
     hiddenPostSummaryInHomePage = true
     enableGoogleAnalytics = true
+    color = 'light'
+    math = true
