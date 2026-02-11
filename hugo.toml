@@ -9,3 +9,7 @@ googleAnalytics = 'G-C6SNRYL17D'
     enableGoogleAnalytics = true
     color = 'light'
     math = true
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
