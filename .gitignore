@@ -7,6 +7,9 @@ $RECYCLE.BIN/
 # MacOS
 .DS_Store
 
+# Build output
+/public/
+
 # exampleSite
 exampleSite/themes
 exampleSite/public
