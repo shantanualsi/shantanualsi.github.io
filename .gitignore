@@ -7,9 +7,16 @@ $RECYCLE.BIN/
 # MacOS
 .DS_Store
 
+# Editor / vault local state
+.vscode/
+content/.obsidian/
+
 # Build output
 /public/
 
 # exampleSite
 exampleSite/themes
 exampleSite/public
+
+# Claude skills 
+.claude/
