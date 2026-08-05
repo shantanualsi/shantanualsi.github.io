@@ -3,12 +3,15 @@ languageCode = 'en-us'
 title = 'Shantanu Alshi'
 theme = 'paper'
 googleAnalytics = 'G-C6SNRYL17D'
+enableRobotsTXT = true
 
 [params]
     hiddenPostSummaryInHomePage = true
     enableGoogleAnalytics = true
     color = 'light'
     math = true
+    monoDarkIcon = true
+    description = 'Personal blog by Shantanu Alshi. My thoughts on distributed systems and experience working in engineering orgs'
 
 [caches]
   [caches.images]
