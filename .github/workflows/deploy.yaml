@@ -18,10 +18,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      DART_SASS_VERSION: 1.97.3
+      # renovate: datasource=github-releases depName=sass/dart-sass
+      DART_SASS_VERSION: 1.102.0
+      # not tracked by renovate: floating minor, setup-go resolves the latest patch
       GO_VERSION: 1.26
-      HUGO_VERSION: 0.155.3
-      NODE_VERSION: 25.6.1
+      # renovate: datasource=github-releases depName=gohugoio/hugo extractVersion=^v(?<version>.*)$
+      HUGO_VERSION: 0.164.0
+      # renovate: datasource=node-version depName=node versioning=node
+      NODE_VERSION: 24.19.0
       TZ: Asia/Kolkata
     steps:
       - name: Checkout
