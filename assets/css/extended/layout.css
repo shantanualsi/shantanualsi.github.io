@@ -1,0 +1,6 @@
+/* Align the header logo with the main content column.
+   PaperMod defaults to --nav-width (1024px) for the header and
+   --main-width (720px) for .main, so both are centered differently. */
+.header-nav {
+  max-width: calc(var(--main-width) + var(--gap) * 2);
+}

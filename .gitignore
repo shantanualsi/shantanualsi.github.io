@@ -13,6 +13,8 @@ content/.obsidian/
 
 # Build output
 /public/
+/resources/
+.hugo_build.lock
 
 # exampleSite
 exampleSite/themes

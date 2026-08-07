@@ -1,18 +1,83 @@
 baseURL = 'https://www.shantanualshi.com/'
-languageCode = 'en-us'
+locale = 'en-us'
 title = 'Shantanu Alshi'
-theme = 'paper'
+theme = 'PaperMod'
 googleAnalytics = 'G-C6SNRYL17D'
 enableRobotsTXT = true
+enableInlineShortcodes = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
 
-[params]
-    hiddenPostSummaryInHomePage = true
-    enableGoogleAnalytics = true
-    color = 'light'
-    math = true
-    monoDarkIcon = true
-    description = 'Personal blog by Shantanu Alshi. My thoughts on distributed systems and experience working in engineering orgs'
+[pagination]
+  pagerSize = 10
+
+[minify]
+  disableXML = true
 
 [caches]
   [caches.images]
     dir = ':cacheDir/images'
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    style = 'monokai'
+
+[params]
+  env = 'production'
+  author = 'Shantanu Alshi'
+  description = 'Personal blog by Shantanu Alshi. My thoughts on distributed systems and experience working in engineering orgs'
+  keywords = ['blog', 'distributed systems', 'engineering']
+  mainSections = ['posts']
+  defaultTheme = 'auto'
+  # Follow the OS preference only; no toggle in the nav.
+  disableThemeToggle = true
+  # Off site-wide so KaTeX is not fetched from a CDN on every page.
+  # Opt in per post with `math = true` in the front matter.
+  math = false
+
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowRssButtonInSectionTermList = true
+  ShowWordCount = false
+  ShowShareButtons = false
+  ShowToc = true
+  TocOpen = false
+  hideSummary = true
+  disableScrollToTop = false
+  comments = false
+
+  # Homepage archive search. Set to false to drop the search box.
+  homeSearch = true
+
+  [params.label]
+    text = 'Shantanu Alshi'
+
+  [params.assets]
+    favicon = '/favicon.ico'
+    apple_touch_icon = '/apple-touch-icon.png'
+
+  # Homepage hero. Body copy lives in content/_index.md.
+  [params.hero]
+    enable = false
+    title = 'Shantanu Alshi'
+
+    [[params.hero.links]]
+      name = 'GitHub'
+      url = 'https://github.com/shantanualsi'
+
+    [[params.hero.links]]
+      name = 'RSS'
+      url = '/index.xml'
+
+[[menu.main]]
+  identifier = 'about'
+  name = 'About me'
+  url = '/about/'
+  weight = 20

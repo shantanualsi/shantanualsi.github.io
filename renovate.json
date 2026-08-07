@@ -3,6 +3,21 @@
   "extends": [
     "config:recommended"
   ],
+  "git-submodules": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "description": "Theme bumps track PaperMod master; CI verifies the homepage before merge",
+      "matchManagers": [
+        "git-submodules"
+      ],
+      "commitMessageTopic": "PaperMod theme",
+      "schedule": [
+        "before 6am on monday"
+      ]
+    }
+  ],
   "customManagers": [
     {
       "customType": "regex",

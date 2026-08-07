@@ -1,0 +1,182 @@
+/* Homepage: hero + instant search + year-grouped archive.
+   Built only on PaperMod's CSS custom properties so theme updates carry through. */
+
+/* ---------- hero ---------- */
+
+#hero.homepg {
+  overflow: hidden;
+  transition: max-height 0.28s ease, opacity 0.2s ease;
+}
+
+#hero.homepg.minimized {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#hero .section-header h2 {
+  margin: 0 0 var(--content-gap) 0;
+  font-size: 24px;
+}
+
+#hero .section-header code {
+  background: var(--code-bg);
+  border-radius: var(--radius);
+  padding: 4px 8px;
+  font-size: inherit;
+}
+
+#hero .section-content {
+  color: var(--content);
+  margin-bottom: var(--content-gap);
+}
+
+#hero .section-content img {
+  border-radius: var(--radius);
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: var(--gap);
+}
+
+.hero-links a {
+  color: var(--secondary);
+  font-size: 15px;
+  box-shadow: 0 1px 0 var(--border);
+}
+
+.hero-links a:hover {
+  color: var(--primary);
+  box-shadow: 0 1px 0 var(--primary);
+}
+
+/* ---------- search ---------- */
+
+.searchbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--gap);
+}
+
+.searchbox input {
+  flex: 1;
+  min-width: 0;
+  /* Right padding clears the overlaid button so text never runs under it. */
+  padding: 8px 60px 8px 12px;
+  color: var(--primary);
+  background: var(--theme);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 16px;
+  font-family: inherit;
+  appearance: none;
+}
+
+.searchbox input:focus {
+  outline: none;
+  border-color: var(--secondary);
+}
+
+/* Taken out of flow so the field itself spans the full content width. */
+.searchbox button {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 4px 8px;
+  color: var(--secondary);
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.searchbox button:hover {
+  color: var(--primary);
+}
+
+.searchbox button.is-hidden {
+  visibility: hidden;
+}
+
+.search-empty {
+  color: var(--secondary);
+  text-align: center;
+  padding: var(--gap) 0;
+}
+
+/* ---------- year-grouped archive ---------- */
+
+.h-year-section {
+  margin-bottom: var(--gap);
+}
+
+.h-year-header {
+  display: flex;
+  align-items: baseline;
+  font-size: 26px;
+  font-weight: 700;
+  margin: var(--gap) 0 8px 0;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--border);
+}
+
+.h-year-header a {
+  color: var(--primary);
+}
+
+.archive-count {
+  color: var(--secondary);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.h-entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.h-entry {
+  position: relative;
+  padding: 10px 12px;
+  margin: 0 -12px;
+  border-radius: var(--radius);
+}
+
+/* Light mode's --code-bg is only 10 levels off white, so the hover barely
+   registers. Dark mode's is ~26 levels off --theme; match that separation. */
+:root {
+  --entry-hover: rgb(236, 236, 236);
+}
+
+:root[data-theme="dark"] {
+  --entry-hover: var(--code-bg);
+}
+
+.h-entry:hover {
+  background: var(--entry-hover);
+}
+
+.h-entry-title {
+  color: var(--primary);
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.archive-meta {
+  color: var(--secondary);
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+/* Stretched anchor: the whole row is the click target. */
+.entry-link {
+  position: absolute;
+  inset: 0;
+}

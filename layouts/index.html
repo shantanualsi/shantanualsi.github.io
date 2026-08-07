@@ -1,0 +1,75 @@
+{{- define "main" }}
+
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
+
+{{- with site.Params.hero }}
+{{- if ne .enable false }}
+<section id="hero" class="homepg">
+  <div class="section-header">
+    <h2><code>{{ .title | default site.Title }}</code></h2>
+  </div>
+  {{- with $.Content }}
+  <div class="section-content md-content">{{ . }}</div>
+  {{- end }}
+  {{- with .links }}
+  <div class="hero-links">
+    {{- range . }}
+    <a href="{{ .url }}" title="{{ .name }}"
+      {{- if hasPrefix .url "http" }} target="_blank" rel="noopener"{{ end }}>{{ .name }}</a>
+    {{- end }}
+  </div>
+  {{- end }}
+</section>
+{{- end }}
+{{- end }}
+
+{{- $search := ne site.Params.homeSearch false }}
+{{- if $search }}
+<div id="searchbox" class="searchbox">
+  <input id="searchInput" type="search" autocomplete="off" maxlength="64" aria-label="search"
+    placeholder="{{ printf `Search among %d posts…` (len $pages) }}">
+  <button id="searchClear" type="button" aria-label="clear search" title="Clear search" hidden>Clear</button>
+</div>
+{{- end }}
+
+<div class="pages">
+  {{- range $pages.GroupByPublishDate "2006" }}
+  <section class="h-year-section">
+    <div class="h-year-header" id="y{{ .Key }}">
+      <a href="#y{{ .Key }}">{{ .Key }}</a>
+      <sup class="archive-count">&nbsp;{{ len .Pages }}</sup>
+    </div>
+    <ul class="h-entries">
+      {{- range .Pages }}
+      {{- $desc := .Description | default (.Summary | plainify | truncate 200 "") }}
+      <li class="h-entry">
+        <div class="h-entry-title">{{ .Title }}</div>
+        {{- with $desc }}
+        <div class="description" hidden>{{ . }}</div>
+        {{- end }}
+        <div class="archive-meta">
+          <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date | time.Format ":date_long" }}</time>
+          {{- with .Params.tags }}
+          &nbsp;·&nbsp;<span>{{ range $i, $t := . }}{{ if $i }}, {{ end }}#{{ $t }}{{ end }}</span>
+          {{- end }}
+        </div>
+        <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+      </li>
+      {{- end }}
+    </ul>
+  </section>
+  {{- end }}
+  {{- if $search }}
+  <p id="searchEmpty" class="search-empty" hidden>No posts matched.</p>
+  {{- end }}
+</div>
+
+{{- if $search }}
+{{- with resources.Get "js/home-search.js" }}
+{{- $js := . | minify | fingerprint }}
+<script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+{{- end }}
+{{- end }}
+
+{{- end }}{{/* end main */}}
