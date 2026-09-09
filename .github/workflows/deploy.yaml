@@ -23,7 +23,7 @@ jobs:
       # not tracked by renovate: floating minor, setup-go resolves the latest patch
       GO_VERSION: 1.26
       # renovate: datasource=github-releases depName=gohugoio/hugo extractVersion=^v(?<version>.*)$
-      HUGO_VERSION: 0.164.0
+      HUGO_VERSION: 0.166.0
       # renovate: datasource=node-version depName=node versioning=node
       NODE_VERSION: 24.19.0
       TZ: Asia/Kolkata
