@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # renovate: datasource=github-releases depName=gohugoio/hugo extractVersion=^v(?<version>.*)$
-      HUGO_VERSION: 0.164.0
+      HUGO_VERSION: 0.166.0
       # renovate: datasource=node-version depName=node versioning=node
       NODE_VERSION: 24.19.0
       TZ: Asia/Kolkata
