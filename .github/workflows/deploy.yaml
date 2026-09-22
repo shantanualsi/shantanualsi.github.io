@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # renovate: datasource=github-releases depName=sass/dart-sass
-      DART_SASS_VERSION: 1.102.0
+      DART_SASS_VERSION: 1.105.0
       # not tracked by renovate: floating minor, setup-go resolves the latest patch
       GO_VERSION: 1.26
       # renovate: datasource=github-releases depName=gohugoio/hugo extractVersion=^v(?<version>.*)$
